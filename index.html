@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cronos Lite</title>
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<h1>Cronos Lite</h1>
+		<h2>Eventos</h2>
+
+		<form class="form">
+			<div class="form-group">
+				<label for="capitulo">Capitulo</label>
+				<input class="form-control" type="text" id="capitulo">
+			</div>
+			<div class="form-group">
+				<label for="importancia">Importância</label>
+				<select class="form-control">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="personagens">Personagens</label>
+				<input class="form-control" type="text" id="personagens">
+			</div>
+			<div class="form-group">
+				<label for="descricao">Descrição</label>
+				<textarea class="form-control" id="descricao"></textarea>
+			</div>
+			<div>
+				<button class="btn btn-primary" type="submit" id="adicionar">Adicionar</button>
+			</div>
+		</form>
+
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					<th>Capitulo</th>
+					<th>Descricao</th>
+					<th>Importancia</th>
+					<th>Personagens envolvidos</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>oi</td>
+					<td>oi</td>
+					<td>oi</td>
+					<td>oi</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/models/Evento.js"></script>
+<script src="js/controllers/EventosController.js"></script>
+<script src="js/views/Index.js"></script>
+
+
+</body>
+</html>
