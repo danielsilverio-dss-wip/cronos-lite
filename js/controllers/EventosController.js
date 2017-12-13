@@ -1,34 +1,40 @@
 class EventosController{
 
 	constructor(){
-		this._capitulo = $('#capitulo')[0]
-		this._importancia = $('#importancia')[0]
-		this._personagens = $('#personagens')[0]
-		this._descricao = $('#descricao')[0]
-		debugger
+
+		this._eventos = new Eventos()
+		this._capitulo = $('#capitulo')
+		this._importancia = $('#importancia')
+		this._personagens = $('#personagens')
+		this._descricao = $('#descricao')
+
+		this._table = $('.table')
 	}
 
-	get capitulo()   { return this._capitulo.val() }
-	get importancia(){ return this._importancia.val() }
-	get personagens(){ return this._personagens.val() }
-	get descricao()  { return this._descricao.val() }
+	get capitulo()   { return this._capitulo }
+	get importancia(){ return this._importancia }
+	get personagens(){ return this._personagens }
+	get descricao()  { return this._descricao }
 
 	adicionar(e){
-		debugger
 		e.preventDefault()
+		
 		const evento = new Evento(
-			this._capitulo,
-			this._importancia,
-			this._personagens,
-			this._descricao
+			this._capitulo.val(),
+			this._importancia.val(),
+			this._personagens.val(),
+			this._descricao.val()
 		)
-		console.log(evento)	
+
+		this._eventos.adiciona(evento)
+
+		ViewHelper.populaTabela(this._table, this._eventos.lista)
 	}
+
 
 }
 
 const eventosController = new EventosController()
-debugger
 const botaoAdicionarEvento = $('#adicionar')
 
-botaoAdicionarEvento.on( 'click', eventosController.adicionar.bind(this) )
+botaoAdicionarEvento.on( 'click', eventosController.adicionar.bind( eventosController ) )
