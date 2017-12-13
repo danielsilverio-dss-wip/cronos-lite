@@ -14,7 +14,7 @@ class ViewHelper{
 	static criaLinhasDeTabela(objetos){
 		let linhas = []
 		objetos.forEach( item => {
-			let row = ViewHelper.criaLinhaDeTabela(item)
+			let row = this.criaLinhaDeTabela(item)
 			linhas.push(row)
 		} )
 		return linhas
@@ -25,11 +25,17 @@ class ViewHelper{
 		let tbody = tabela.find('tbody')
 		let linhas = this.criaLinhasDeTabela(objetos)
 
-		tbody.empty()
-
 		linhas.forEach( linha => {
 			tbody.append(linha)
 		} )
+	}
+
+	static atualizaTabela(tabela, objetos){
+
+		let tbody = tabela.find('tbody')
+		tbody.empty()
+
+		this.populaTabela(tabela, objetos)
 	}
 
 }

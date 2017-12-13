@@ -15,6 +15,7 @@ class EventosController{
 	get importancia(){ return this._importancia }
 	get personagens(){ return this._personagens }
 	get descricao()  { return this._descricao }
+	get eventos()	 { return this._eventos }
 
 	adicionar(e){
 		e.preventDefault()
@@ -27,14 +28,11 @@ class EventosController{
 		)
 
 		this._eventos.adiciona(evento)
-
-		ViewHelper.populaTabela(this._table, this._eventos.lista)
+		ViewHelper.atualizaTabela(this._table, this._eventos.lista)
 	}
-
 
 }
 
 const eventosController = new EventosController()
 const botaoAdicionarEvento = $('#adicionar')
-
 botaoAdicionarEvento.on( 'click', eventosController.adicionar.bind( eventosController ) )
